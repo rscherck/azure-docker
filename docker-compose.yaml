@@ -11,9 +11,11 @@ services:
       volumes:
         - ./azurite:/workspace
 
-  # app:
-  #   build: .
-  #   ports:
-  #     - 8080:80
-  #   depends_on:
-  #     - azurite
+  app:
+    build: .
+    ports:
+      - 8080:80
+    depends_on:
+      - azurite
+    env_file:
+      - .env
